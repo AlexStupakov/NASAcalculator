@@ -21,5 +21,4 @@ RSpec.describe FuelCalculation do
       expect(FuelCalculation.calculate_whole_way_fuel(28801, [[:land, 9.807]])).to eq 13447
     end
   end
-
 end

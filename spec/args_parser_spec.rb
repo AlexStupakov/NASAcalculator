@@ -48,10 +48,10 @@ RSpec.describe ArgsParser do
     it do
       expect(ArgsParser.get_flight_route_array('28801, [[:bla, 9.807]]')).to eq []
     end
+
     it do
       expect(ArgsParser.get_flight_route_array('28801, [[:launch, 9.807], [:land, 1.62], [:launch, 1.62], [:land, 9.807]]'))
         .to eq [[:launch, 9.807], [:land, 1.62], [:launch, 1.62], [:land, 9.807]]
     end
   end
-
 end
