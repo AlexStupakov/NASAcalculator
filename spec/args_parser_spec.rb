@@ -11,17 +11,17 @@ RSpec.describe ArgsParser do
       expect(ArgsParser.get_ship_weight_integer('28801, [[:land, 9.807]]')).to eq 28801
     end
 
-    describe 'incorrect arguments return 0' do
+    describe 'incorrect arguments raise error' do
       it do
-        expect(ArgsParser.get_ship_weight_integer(', [[:land, 9.807]]')).to eq 0
+        expect { ArgsParser.get_ship_weight_integer(', [[:land, 9.807]]') }.to raise_error
       end
 
       it do
-        expect(ArgsParser.get_ship_weight_integer('[[:land, 9.807]]')).to eq 0
+        expect { ArgsParser.get_ship_weight_integer('[[:land, 9.807]]') }.to raise_error
       end
 
       it do
-        expect(ArgsParser.get_ship_weight_integer('bla')).to eq 0
+        expect { ArgsParser.get_ship_weight_integer('bla') }.to raise_error
       end
     end
   end
@@ -40,7 +40,7 @@ RSpec.describe ArgsParser do
     end
 
     it 'should pass only :launch or :land' do
-      expect(ArgsParser.get_flight_route_array('28801, [[:bla, 9.807]]')).to eq []
+      expect { ArgsParser.get_flight_route_array('28801, [[:bla, 9.807]]') }.to raise_error
       expect(ArgsParser.get_flight_route_array('28801, [[:launch, 9.807]]')).to eq [[:launch, 9.807]]
       expect(ArgsParser.get_flight_route_array('28801, [[:land, 9.807]]')).to eq [[:land, 9.807]]
     end

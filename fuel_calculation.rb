@@ -37,4 +37,10 @@ module FuelCalculation
 		return total_mass if fuel <= 0
 		self.calculate_one_action_fuel(fuel, gravity, action_type, total_mass + fuel)
 	end
+
+	def self.report_fuel_weight(ship_weight, flight_route)
+		fuel_weight = calculate_whole_way_fuel(ship_weight, flight_route)
+
+		"Space ship with weight #{ship_weight}, that going to trip #{flight_route}, should have #{fuel_weight} of fuel."
+	end
 end

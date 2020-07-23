@@ -21,4 +21,8 @@ RSpec.describe FuelCalculation do
       expect(FuelCalculation.calculate_whole_way_fuel(28801, [[:land, 9.807]])).to eq 13447
     end
   end
+
+  it 'report_fuel_weight' do
+    expect(FuelCalculation.report_fuel_weight(28801, [[:land, 9.807]])).to eq 'Space ship with weight 28801, that going to trip [[:land, 9.807]], should have 13447 of fuel.'
+  end
 end
